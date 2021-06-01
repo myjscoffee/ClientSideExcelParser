@@ -1,25 +1,31 @@
+const actualBtn = document.getElementById('actual-btn');
 
-const excel = require("exceljs");
-//Read a file
-var workbook = new excel.Workbook();
-workbook.xlsx.readFile("../assets/book.xlsx").then(function () {
+const fileChosen = document.getElementById('file-chosen');
 
-const json = JSON.stringify(workbook.model);
-console.log(json);
+actualBtn.addEventListener('change', function(){
+  fileChosen.textContent = this.files[0].name
+})
+// const excel = require("exceljs");
+
+// var workbook = new excel.Workbook();
+// workbook.xlsx.readFile("../assets/book.xlsx").then(function () {
+// //Read a file
+// const json = JSON.stringify(workbook.model);
+// console.log(json);
 
 
-//Get sheet by Name
-//var worksheet=workbook.getWorksheet('Sheet1');
+// //Get sheet by Name
+// //var worksheet=workbook.getWorksheet('Sheet1');
              
-//Get Lastrow
-//svar row = worksheet.lastRow
+// //Get Lastrow
+// //svar row = worksheet.lastRow
              
-//Update a cell
-//row.getCell(1).value = 5;
+// //Update a cell
+// //row.getCell(1).value = 5;
  
-//row.commit();
+// //row.commit();
  
-//Save the workbook
-//return workbook.xlsx.writeFile("data/Sample.xlsx");
+// //Save the workbook
+// //return workbook.xlsx.writeFile("data/Sample.xlsx");
  
-});  
+// });  
