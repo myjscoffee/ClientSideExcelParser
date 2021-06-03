@@ -1,31 +1,25 @@
-const actualBtn = document.getElementById('actual-btn');
 
-const fileChosen = document.getElementById('file-chosen');
+let actualBtn,fileChosen;
+window.addEventListener('load', () => {
+   actualBtn = document.getElementById('actual-btn');
 
-actualBtn.addEventListener('change', function(){
-  fileChosen.textContent = this.files[0].name
+   fileChosen = document.getElementById('file-chosen');
+
+   actualBtn.addEventListener('change', function(){
+     const fileSelected=this.files[0];
+    fileChosen.textContent = fileSelected.name
+
+    const reader = new FileReader();
+                reader.readAsArrayBuffer(fileSelected);
+                reader.onload = function(e) {
+                        var data = new Uint8Array(reader.result);
+                        var wb = XLSX.read(data,{type:'array'});
+                        var htmlstr = XLSX.write(wb,{sheet:"sheet no1", type:'binary',bookType:'html'});
+                        $('#wrapper')[0].innerHTML += htmlstr;
+                }
+  })
 })
-// const excel = require("exceljs");
-
-// var workbook = new excel.Workbook();
-// workbook.xlsx.readFile("../assets/book.xlsx").then(function () {
-// //Read a file
-// const json = JSON.stringify(workbook.model);
-// console.log(json);
 
 
-// //Get sheet by Name
-// //var worksheet=workbook.getWorksheet('Sheet1');
-             
-// //Get Lastrow
-// //svar row = worksheet.lastRow
-             
-// //Update a cell
-// //row.getCell(1).value = 5;
- 
-// //row.commit();
- 
-// //Save the workbook
-// //return workbook.xlsx.writeFile("data/Sample.xlsx");
- 
-// });  
+
+
