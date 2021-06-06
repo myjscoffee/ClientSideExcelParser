@@ -1,0 +1,37 @@
+* {
+    font-family: sans-serif;
+}
+
+label {
+    background-color: indigo;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#wrapper {
+    margin-top: 15px;
+}
+
+#file-chosen {
+    margin-left: 0.3rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #dddd;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:first-child {
+    font-weight: bold;
+    color: rgba(0, 150, 0, 0.8);
+}
