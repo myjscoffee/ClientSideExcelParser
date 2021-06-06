@@ -14,11 +14,9 @@ window.addEventListener('load', () => {
                 reader.readAsArrayBuffer(fileSelected);
                 reader.onload = function(e) {
                         var data = new Uint8Array(reader.result);
-                        console.log(data);
                         var wb = XLSX.read(data,{type:'array'});
-                        console.log(wb);
+                        console.log(wb['Strings']);
                         var htmlstr = XLSX.write(wb,{sheet:"Sheet1", type:'binary',bookType:'html'});
-                        console.log(htmlstr);
                         document.getElementById('wrapper').innerHTML += htmlstr;
                 }
   })
