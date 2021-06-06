@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
 
    actualBtn.addEventListener('change', function(){
      const fileSelected=this.files[0];
-    //fileChosen.textContent = fileSelected.name
+    fileChosen.textContent = fileSelected.name
 
     const reader = new FileReader();
                 reader.readAsArrayBuffer(fileSelected);
